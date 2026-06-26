@@ -1,5 +1,3 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -12,7 +10,28 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "@spartan-ng/helm/separator": ["./src/app/components/ui/separator/src/index.ts"],
+      "@spartan-ng/helm/utils": ["./src/app/components/ui/utils/src/index.ts"],
+      "@spartan-ng/helm/breadcrumb": ["./src/app/components/ui/breadcrumb/src/index.ts"],
+      "@spartan-ng/helm/input-group": ["./src/app/components/ui/input-group/src/index.ts"],
+      "@spartan-ng/helm/button": ["./src/app/components/ui/button/src/index.ts"],
+      "@spartan-ng/helm/input": ["./src/app/components/ui/input/src/index.ts"],
+      "@spartan-ng/helm/textarea": ["./src/app/components/ui/textarea/src/index.ts"],
+      "@spartan-ng/helm/sidebar": ["./src/app/components/ui/sidebar/src/index.ts"],
+      "@spartan-ng/helm/sheet": ["./src/app/components/ui/sheet/src/index.ts"],
+      "@spartan-ng/helm/skeleton": ["./src/app/components/ui/skeleton/src/index.ts"],
+      "@spartan-ng/helm/tooltip": ["./src/app/components/ui/tooltip/src/index.ts"],
+      "@spartan-ng/helm/dropdown-menu": ["./src/app/components/ui/dropdown-menu/src/index.ts"],
+      "@spartan-ng/helm/menubar": ["./src/app/components/ui/menubar/src/index.ts"],
+      "@spartan-ng/helm/avatar": ["./src/app/components/ui/avatar/src/index.ts"],
+      "@spartan-ng/helm/collapsible": ["./src/app/components/ui/collapsible/src/index.ts"],
+      "@spartan-ng/helm/card": ["./src/app/components/ui/card/src/index.ts"],
+      "@spartan-ng/helm/label": ["./src/app/components/ui/label/src/index.ts"],
+      "@spartan-ng/helm/select": ["./src/app/components/ui/select/src/index.ts"],
+      "@spartan-ng/helm/sonner": ["./src/app/components/ui/sonner/src/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
