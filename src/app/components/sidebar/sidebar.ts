@@ -1,6 +1,26 @@
 import { Component } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideChevronRight } from '@ng-icons/lucide';
+import {
+  lucideBadgeCheck,
+  lucideBell,
+  lucideBookText,
+  lucideBriefcase,
+  lucideBuilding2,
+  lucideChevronRight,
+  lucideClipboardList,
+  lucideCreditCard,
+  lucideDatabase,
+  lucideFileSignature,
+  lucideFileText,
+  lucideGavel,
+  lucideLandmark,
+  lucideLayers,
+  lucideLock,
+  lucideReceipt,
+  lucideScrollText,
+  lucideSheet,
+  lucideWallet,
+} from '@ng-icons/lucide';
 import { HlmCollapsibleImports } from '@spartan-ng/helm/collapsible';
 
 import { HlmSidebarImports } from '@spartan-ng/helm/sidebar';
@@ -23,7 +43,7 @@ import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
   template: `
     <div hlmSidebarWrapper>
       <hlm-sidebar>
-        <div hlmSidebarContent class="mt-10">
+        <div hlmSidebarContent class="mt-20">
           <a routerLink="/home" hlmSidebarHeader class="items-center">
             <img src="logo.png" alt="" width="200px" />
           </a>
@@ -40,6 +60,7 @@ import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
                         hlmCollapsibleTrigger
                         class="flex w-full items-center justify-between"
                       >
+                        <ng-icon name="{{ menu.icon }}" class="transition-transform " hlm />
                         <span>{{ menu.title }}</span>
                         <ng-icon
                           name="lucideChevronRight"
@@ -119,12 +140,35 @@ import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
       </hlm-dropdown-menu>
     </ng-template>
   `,
-  providers: [provideIcons({ lucideChevronRight })],
+  providers: [
+    provideIcons({
+      lucideChevronRight,
+      lucideFileText,
+      lucideWallet,
+      lucideBadgeCheck,
+      lucideBriefcase,
+      lucideBuilding2,
+      lucideFileSignature,
+      lucideGavel,
+      lucideLock,
+      lucideLayers,
+      lucideScrollText,
+      lucideClipboardList,
+      lucideReceipt,
+      lucideLandmark,
+      lucideBell,
+      lucideCreditCard,
+      lucideBookText,
+      lucideDatabase,
+      lucideSheet,
+    }),
+  ],
 })
 export default class AppSidebar {
   protected readonly menuItems = [
     {
       title: 'Alvará de Funcionamento',
+      icon: 'lucideFileText',
       defaultOpen: false,
       items: [
         {
@@ -154,6 +198,7 @@ export default class AppSidebar {
     },
     {
       title: 'Arrecadação',
+      icon: 'lucideWallet',
       defaultOpen: false,
       items: [
         {
@@ -183,6 +228,7 @@ export default class AppSidebar {
     },
     {
       title: 'Benefício Fiscal',
+      icon: 'lucideBadgeCheck',
       defaultOpen: false,
       items: [
         {
@@ -212,6 +258,7 @@ export default class AppSidebar {
     },
     {
       title: 'Cadastro Econômico',
+      icon: 'lucideBriefcase',
       defaultOpen: false,
       items: [
         {
@@ -241,6 +288,7 @@ export default class AppSidebar {
     },
     {
       title: 'Cadastro Imobiliário',
+      icon: 'lucideBuilding2',
       defaultOpen: false,
       items: [
         {
@@ -278,6 +326,7 @@ export default class AppSidebar {
     },
     {
       title: 'Certidões',
+      icon: 'lucideFileSignature',
       defaultOpen: false,
       items: [
         {
@@ -303,6 +352,7 @@ export default class AppSidebar {
     },
     {
       title: 'Contencioso Administrativo',
+      icon: 'lucideGavel',
       defaultOpen: false,
       items: [
         {
@@ -332,6 +382,7 @@ export default class AppSidebar {
     },
     {
       title: 'Controle de Acesso',
+      icon: 'lucideLock,',
       defaultOpen: false,
       items: [
         {
@@ -361,6 +412,7 @@ export default class AppSidebar {
     },
     {
       title: 'DESIF',
+      icon: 'lucideLayers,',
       defaultOpen: false,
       items: [
         {
@@ -390,6 +442,7 @@ export default class AppSidebar {
     },
     {
       title: 'Dívida Ativa',
+      icon: 'lucideScrollText,',
       defaultOpen: false,
       items: [
         {
@@ -419,6 +472,7 @@ export default class AppSidebar {
     },
     {
       title: 'Fiscalização',
+      icon: 'lucideClipboardList,',
       defaultOpen: false,
       items: [
         {
@@ -448,6 +502,7 @@ export default class AppSidebar {
     },
     {
       title: 'ITBI',
+      icon: 'lucideReceipt,',
       defaultOpen: false,
       items: [
         {
@@ -477,6 +532,7 @@ export default class AppSidebar {
     },
     {
       title: 'Lançamento de Tributos',
+      icon: 'lucideLandmark,',
       defaultOpen: false,
       items: [
         {
@@ -506,6 +562,7 @@ export default class AppSidebar {
     },
     {
       title: 'Nota Fiscal Eletrônica',
+      icon: 'lucideFileText,',
       defaultOpen: false,
       items: [
         {
@@ -535,6 +592,7 @@ export default class AppSidebar {
     },
     {
       title: 'Notificação',
+      icon: 'lucideBell,',
       defaultOpen: false,
       items: [
         {
@@ -564,6 +622,7 @@ export default class AppSidebar {
     },
     {
       title: 'Parcelamento de Débitos',
+      icon: 'lucideCreditCard,',
       defaultOpen: false,
       items: [
         {
@@ -593,6 +652,7 @@ export default class AppSidebar {
     },
     {
       title: 'Processo Administrativo',
+      icon: 'lucideBookText',
       defaultOpen: false,
       items: [
         {
@@ -622,6 +682,7 @@ export default class AppSidebar {
     },
     {
       title: 'REDESIM',
+      icon: 'lucideDatabase',
       defaultOpen: false,
       items: [
         {
@@ -651,6 +712,7 @@ export default class AppSidebar {
     },
     {
       title: 'Simples Nacional',
+      icon: 'lucideSheet',
       defaultOpen: false,
       items: [
         {

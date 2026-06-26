@@ -21,18 +21,24 @@ import { UserComboboxComponent } from '../user-combobox/user-combobox';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="bg-background sticky top-0 z-50 flex w-full items-center border-b">
-      <div class="flex h-(--header-height) w-full items-center gap-2 px-4">
-        <button hlmSidebarTrigger></button>
-        <hlm-separator orientation="vertical" class="mr-2" />
-        <div class="w-full sm:ml-auto sm:w-auto">
+      <div class="flex h-(--header-height) w-full items-center gap-2 px-4 p-2">
+        <div class="flex  ">
+          <button hlmSidebarTrigger></button>
+          <hlm-separator orientation="vertical" class="mr-2" />
+          <div hlmInputGroup class="w-full sm:ml-auto sm:w-auto">
+            <input
+              hlmInputGroupInput
+              placeholder="Buscar inscrição, CNPJ do contribuinte"
+              class="w-full"
+            />
+            <div hlmInputGroupAddon>
+              <ng-icon name="lucideSearch" />
+            </div>
+          </div>
+        </div>
+        <div class="w-full sm:ml-auto sm:w-auto border rounded-lg  px-2 py-1 text-sm font-medium ">
           <app-user-combobox />
         </div>
-        <!-- <div hlmInputGroup class="w-full sm:ml-auto sm:w-auto">
-          <input hlmInputGroupInput placeholder="Type to search..." />
-          <div hlmInputGroupAddon>
-            <ng-icon name="lucideSearch" />
-          </div>
-        </div> -->
       </div>
     </header>
   `,
