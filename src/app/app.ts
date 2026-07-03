@@ -4,10 +4,12 @@ import { SiteHeader } from './components/header/header';
 import AppSidebar from './components/sidebar/sidebar';
 import { CardPreview } from './components/card-tela-principal/card-tela-principal';
 import { SiteBreadcrumb } from './components/navigation/navigation';
+import { Footer } from './components/footer/footer';
+import { HlmToaster } from '@spartan-ng/helm/sonner';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SiteHeader, AppSidebar, CardPreview, SiteBreadcrumb],
+  imports: [RouterOutlet, SiteHeader, AppSidebar, CardPreview, SiteBreadcrumb, Footer, HlmToaster],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -7,6 +7,7 @@ import {
   lucideBriefcase,
   lucideBuilding2,
   lucideChevronRight,
+  lucideChevronsUpDown,
   lucideClipboardList,
   lucideCreditCard,
   lucideDatabase,
@@ -21,128 +22,30 @@ import {
   lucideSheet,
   lucideWallet,
 } from '@ng-icons/lucide';
-import { HlmCollapsibleImports } from '@spartan-ng/helm/collapsible';
 
 import { HlmSidebarImports } from '@spartan-ng/helm/sidebar';
+import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
+import { HlmSeparator } from '@spartan-ng/helm/separator';
+
 import { UserComboboxComponent } from '../user-combobox/user-combobox';
 import { contribComboboxComponent } from '../contrib-combobox/contrib-combobox';
-import { HlmSeparator } from '@spartan-ng/helm/separator';
-import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
 
 @Component({
   selector: 'app-sidebar',
+  standalone: true,
   imports: [
     HlmSidebarImports,
-    HlmCollapsibleImports,
     HlmDropdownMenuImports,
     NgIcon,
     UserComboboxComponent,
     contribComboboxComponent,
     HlmSeparator,
   ],
-  template: `
-    <div hlmSidebarWrapper>
-      <hlm-sidebar>
-        <div hlmSidebarContent class="mt-20">
-          <a routerLink="/home" hlmSidebarHeader class="items-center">
-            <img src="logo.png" alt="" width="200px" />
-          </a>
-          <hlm-separator class="mr-2" />
-
-          <div hlmSidebarGroup>
-            <div hlmSidebarGroupContent>
-              <ul hlmSidebarMenu>
-                @for (menu of menuItems; track menu.title) {
-                  <hlm-collapsible [expanded]="menu.defaultOpen" class="group/collapsible">
-                    <li hlmSidebarMenuItem>
-                      <button
-                        hlmSidebarMenuButton
-                        hlmCollapsibleTrigger
-                        class="flex w-full items-center justify-between"
-                      >
-                        <ng-icon name="{{ menu.icon }}" class="transition-transform " hlm />
-                        <span>{{ menu.title }}</span>
-                        <ng-icon
-                          name="lucideChevronRight"
-                          class="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90"
-                          hlm
-                        />
-                      </button>
-
-                      <hlm-collapsible-content>
-                        <ul hlmSidebarMenuSub>
-                          @for (subItem of menu.items; track subItem.title) {
-                            @if (subItem.items) {
-                              <hlm-collapsible class="group/subcollapsible">
-                                <li hlmSidebarMenuSubItem>
-                                  <button
-                                    hlmBtn
-                                    variant="outline"
-                                    [hlmDropdownMenuTrigger]="menu"
-                                    align="start"
-                                  >
-                                    {{ subItem.title }}
-                                  </button>
-
-                                  <hlm-collapsible-content>
-                                    <ul class="ml-4 mt-1">
-                                      @for (tela of subItem.items; track tela.title) {
-                                        <li>
-                                          <button
-                                            hlmSidebarMenuSubButton
-                                            class="w-full font-normal hover:text-foreground"
-                                          >
-                                            {{ tela.title }}
-                                          </button>
-                                        </li>
-                                      }
-                                    </ul>
-                                  </hlm-collapsible-content>
-                                </li>
-                              </hlm-collapsible>
-                            } @else {
-                              <li hlmSidebarMenuSubItem>
-                                <button hlmSidebarMenuSubButton class="w-full">
-                                  <span>{{ subItem.title }}</span>
-                                </button>
-                              </li>
-                            }
-                          }
-                        </ul>
-                      </hlm-collapsible-content>
-                    </li>
-                  </hlm-collapsible>
-                }
-              </ul>
-            </div>
-          </div>
-          <div hlmSidebarFooter class="mt-auto"><app-contrib-combobox /></div>
-        </div>
-      </hlm-sidebar>
-      <main hlmSidebarInset>
-        <header class="flex h-12 items-center justify-between px-4"></header>
-      </main>
-    </div>
-
-    <ng-template #menu>
-      <hlm-dropdown-menu>
-        <hlm-dropdown-menu-group>
-          <button hlmDropdownMenuItem>Team</button>
-          <button hlmDropdownMenuItem [hlmDropdownMenuSubTrigger]="menu" side="right" align="start">
-            Invite users
-            <hlm-dropdown-menu-item-sub-indicator />
-          </button>
-          <button hlmDropdownMenuItem>
-            New Team
-            <hlm-dropdown-menu-shortcut>⌘+T</hlm-dropdown-menu-shortcut>
-          </button>
-        </hlm-dropdown-menu-group>
-      </hlm-dropdown-menu>
-    </ng-template>
-  `,
+  templateUrl: './sidebar.html',
   providers: [
     provideIcons({
       lucideChevronRight,
+      lucideChevronsUpDown,
       lucideFileText,
       lucideWallet,
       lucideBadgeCheck,
@@ -172,25 +75,34 @@ export default class AppSidebar {
       defaultOpen: false,
       items: [
         {
+          title: 'Contribuinte',
+          items: [{ title: 'Consulta de Alvarás', route: '/cadastro-novo' }],
+        },
+        {
           title: 'Prefeitura',
           items: [
-            { title: 'Cadastro Novo Contribuinte', route: '/cadastro-novo' },
-            { title: 'Consulta de Contribuinte', route: '/consulta' },
+            {
+              title: 'Solicitação de Alvará de Funcionamente e Localização',
+              route: '/cadastro-novo',
+            },
+            { title: 'Consulta de Alvarás', route: '/consulta' },
+            { title: 'Liberação Manual de Alvará', route: '/consulta' },
+            { title: 'Verificação de Autenticidade de Alvará', route: '/consulta' },
+            { title: 'Solicitação de Alvará Provisório', route: '/consulta' },
+            { title: 'Solicitação de Alvará Proporcional', route: '/consulta' },
+            { title: 'Quantitativo Alvará', route: '/consulta' },
+            { title: 'Simulação de Lançamento de Alvará', route: '/consulta' },
           ],
           route: '/outra-opcao',
         },
         {
-          title: 'Contribuinte',
-          items: [
-            { title: 'Consulta Dados Cadastrais', route: '/cadastro-novo' },
-            { title: 'Solicitação de Benefício', route: '/consulta' },
-          ],
-        },
-        {
           title: 'Configurações',
           items: [
-            { title: 'Tabelas Gerais', route: '/cadastro-novo' },
-            { title: 'Natureza Jurídica', route: '/consulta' },
+            { title: 'Parâmetros do Alvará de Funcionamento', route: '/cadastro-novo' },
+            { title: 'Controle de Tipos de Alvará', route: '/consulta' },
+            { title: 'Clonagem de Atividade Licenciadas', route: '/consulta' },
+            { title: 'Atividade X Atividade Licenciada', route: '/consulta' },
+            { title: 'Exceção Limite Alvará', route: '/consulta' },
           ],
           route: '/outra-opcao',
         },
@@ -204,24 +116,28 @@ export default class AppSidebar {
         {
           title: 'Prefeitura',
           items: [
-            { title: 'Cadastro Novo Contribuinte', route: '/cadastro-novo' },
-            { title: 'Consulta de Contribuinte', route: '/consulta' },
+            { title: 'Controle de Arquivos de Pagamentos', route: '/cadastro-novo' },
+            { title: 'Consulta de Processamento de Arquivos ', route: '/consulta' },
+            { title: 'Relatório de Guias Liberadas Não Baixadas', route: '/consulta' },
+            { title: 'Consulta de Arrecadação x Receita', route: '/consulta' },
+            { title: 'Classificação Contábil', route: '/consulta' },
+            { title: 'Consulta de Arrecadação X Receita por Contribuinte', route: '/consulta' },
+            { title: 'Posição Diária', route: '/consulta' },
+            { title: 'Consulta de Devedores', route: '/consulta' },
+            { title: 'Previsão de Arrecadação por Período', route: '/consulta' },
+            { title: 'Estatística de Arrecadação', route: '/consulta' },
+            { title: 'Arrecadação de Taxas', route: '/consulta' },
+            { title: 'Manutenção do Plano de Contas', route: '/consulta' },
+            { title: 'Consulta Classificação Receita', route: '/consulta' },
+            { title: 'Previsão de Arrecadação Consolidada', route: '/consulta' },
+            { title: 'Receita Orçada x Arrecadada', route: '/consulta' },
           ],
           route: '/outra-opcao',
         },
-        {
-          title: 'Contribuinte',
-          items: [
-            { title: 'Consulta Dados Cadastrais', route: '/cadastro-novo' },
-            { title: 'Solicitação de Benefício', route: '/consulta' },
-          ],
-        },
+
         {
           title: 'Configurações',
-          items: [
-            { title: 'Tabelas Gerais', route: '/cadastro-novo' },
-            { title: 'Natureza Jurídica', route: '/consulta' },
-          ],
+          items: [{ title: 'Controle de Convênios', route: '/cadastro-novo' }],
           route: '/outra-opcao',
         },
       ],
@@ -232,26 +148,24 @@ export default class AppSidebar {
       defaultOpen: false,
       items: [
         {
+          title: 'Cadastro',
+          items: [
+            { title: 'Controle de Benefícios Fiscais/Imunidade', route: '/cadastro-novo' },
+            { title: 'Concessão Benefício Contribuinte', route: '/consulta' },
+            { title: 'Revogação de Benefícios', route: '/consulta' },
+          ],
+        },
+        {
           title: 'Prefeitura',
           items: [
-            { title: 'Cadastro Novo Contribuinte', route: '/cadastro-novo' },
-            { title: 'Consulta de Contribuinte', route: '/consulta' },
+            { title: 'Consulta Benefício Fiscal', route: '/cadastro-novo' },
+            { title: 'Relatório de Renúncia Fiscal', route: '/consulta' },
           ],
           route: '/outra-opcao',
         },
         {
-          title: 'Contribuinte',
-          items: [
-            { title: 'Consulta Dados Cadastrais', route: '/cadastro-novo' },
-            { title: 'Solicitação de Benefício', route: '/consulta' },
-          ],
-        },
-        {
           title: 'Configurações',
-          items: [
-            { title: 'Tabelas Gerais', route: '/cadastro-novo' },
-            { title: 'Natureza Jurídica', route: '/consulta' },
-          ],
+          items: [{ title: 'Parâmetros', route: '/cadastro-novo' }],
           route: '/outra-opcao',
         },
       ],
@@ -741,4 +655,9 @@ export default class AppSidebar {
       ],
     },
   ];
+  activeModule = this.menuItems[0];
+
+  setActiveModule(module: any) {
+    this.activeModule = module;
+  }
 }

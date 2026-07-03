@@ -1,1 +1,89 @@
-<p>sidebar works!</p>
+<div hlmSidebarWrapper>
+  <hlm-sidebar>
+    <div hlmSidebarContent class="mt-20 mb-10">
+      <a routerLink="/home" hlmSidebarHeader class="items-center mb-4">
+        <img src="logo.png" alt="" width="200px" />
+      </a>
+
+      <div class="px-2 mb-4">
+        <button
+          hlmSidebarMenuButton
+          [hlmDropdownMenuTrigger]="moduleSwitcher"
+          class="w-full justify-between bg-sidebar-accent text-sidebar-accent-foreground border border-border"
+        >
+          <div class="flex items-center gap-2">
+            <ng-icon [name]="activeModule.icon" hlm />
+            <span class="font-bold truncate">{{ activeModule.title }}</span>
+          </div>
+          <ng-icon name="lucideChevronsUpDown" class="ml-auto size-4 shrink-0" hlm />
+        </button>
+
+        <ng-template #moduleSwitcher>
+          <hlm-dropdown-menu class="w-64">
+            <hlm-dropdown-menu-group>
+              <div class="px-2 py-1.5 text-sm font-semibold text-muted-foreground">
+                Selecione o Módulo
+              </div>
+              <hlm-separator />
+
+              @for (mod of menuItems; track mod.title) {
+                <button hlmDropdownMenuItem (click)="setActiveModule(mod)">
+                  <ng-icon [name]="mod.icon" class="mr-2 size-4" hlm />
+                  <span class="truncate">{{ mod.title }}</span>
+                </button>
+              }
+            </hlm-dropdown-menu-group>
+          </hlm-dropdown-menu>
+        </ng-template>
+      </div>
+
+      <hlm-separator class="mx-2 mb-2" />
+
+      <div hlmSidebarGroup>
+        <div hlmSidebarGroupContent>
+          <ul hlmSidebarMenu>
+            @for (subItem of activeModule.items; track subItem.title) {
+              <li hlmSidebarMenuItem>
+                @if (subItem.items) {
+                  <button
+                    hlmSidebarMenuButton
+                    [hlmDropdownMenuTrigger]="subMenu"
+                    side="right"
+                    align="start"
+                    class="flex w-full items-center justify-between"
+                  >
+                    <span>{{ subItem.title }}</span>
+                    <ng-icon name="lucideChevronRight" class="ml-auto size-4" hlm />
+                  </button>
+
+                  <ng-template #subMenu>
+                    <hlm-dropdown-menu sub>
+                      <hlm-dropdown-menu-group>
+                        @for (tela of subItem.items; track tela.title) {
+                          <button hlmDropdownMenuItem>
+                            {{ tela.title }}
+                          </button>
+                        }
+                      </hlm-dropdown-menu-group>
+                    </hlm-dropdown-menu>
+                  </ng-template>
+                } @else {
+                  <button hlmSidebarMenuButton>
+                    <span>{{ subItem.title }}</span>
+                  </button>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div hlmSidebarFooter class="mt-auto">
+        <app-contrib-combobox />
+      </div>
+    </div>
+  </hlm-sidebar>
+  <main hlmSidebarInset>
+    <header class="flex h-12 items-center justify-between px-4"></header>
+  </main>
+</div>

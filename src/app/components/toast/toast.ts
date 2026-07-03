@@ -6,16 +6,7 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
   selector: 'spartan-sonner-types-example',
   imports: [HlmButtonImports],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <div class="flex flex-wrap justify-center gap-2">
-      <button hlmBtn variant="outline" (click)="showToast()">Default</button>
-      <button hlmBtn variant="outline" (click)="showSuccess()">Success</button>
-      <button hlmBtn variant="outline" (click)="showInfo()">Info</button>
-      <button hlmBtn variant="outline" (click)="showError()">Error</button>
-      <button hlmBtn variant="outline" (click)="showWarning()">Warning</button>
-      <button hlmBtn variant="outline" (click)="showPromise()">Promise</button>
-    </div>
-  `,
+  templateUrl: `./toast.html`,
 })
 export class SonnerTypesExample {
   showToast() {

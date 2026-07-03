@@ -1,1 +1,42 @@
-<p>contrib-combobox works!</p>
+<button
+  hlmSidebarMenuButton
+  [hlmDropdownMenuTrigger]="userMenu"
+  size="lg"
+  class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+>
+  <hlm-avatar class="h-8 w-8 shrink-0 rounded-lg">
+    <img src="" alt="Avatar" hlmAvatarImage />
+    <span hlmAvatarFallback class="rounded-lg text-xs font-semibold">
+      {{ getInitials(userMock.name) }}
+    </span>
+  </hlm-avatar>
+
+  <div class="grid flex-1 overflow-hidden text-left text-sm leading-tight">
+    <span class="truncate font-semibold">{{ userMock.name }}</span>
+    <span class="truncate text-xs text-muted-foreground">
+      {{ userMock.matricula }}
+    </span>
+  </div>
+
+  <ng-icon name="lucideChevronsUpDown" class="ml-auto size-4 shrink-0" />
+</button>
+
+<ng-template #userMenu>
+  <hlm-dropdown-menu class="w-56 rounded-lg" side="top" align="center" [sideOffset]="4">
+    <div class="flex items-center justify-start gap-2 p-2">
+      <div class="flex flex-col space-y-1 leading-none">
+        <p class="text-sm font-medium">{{ userMock.name }}</p>
+        <p class="w-50 truncate text-xs text-muted-foreground">
+          {{ userMock.matricula }}
+        </p>
+      </div>
+    </div>
+
+    <hlm-separator />
+
+    <button hlmMenuItem class="cursor-pointer text-destructive focus:text-destructive">
+      <ng-icon name="lucideLogOut" class="mr-2 h-4 w-4" />
+      <span>Sair da conta</span>
+    </button>
+  </hlm-dropdown-menu>
+</ng-template>

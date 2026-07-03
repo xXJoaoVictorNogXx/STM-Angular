@@ -19,25 +19,6 @@ import { UserComboboxComponent } from '../user-combobox/user-combobox';
   ],
   providers: [provideIcons({ lucideSearch })],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <header class="bg-background sticky top-0 z-50 flex w-full items-center">
-      <nav hlmBreadcrumb class="hidden sm:block">
-        <ol hlmBreadcrumbList>
-          <li hlmBreadcrumbItem>
-            <a hlmBreadcrumbLink link="/">Cadastro Econômico</a>
-          </li>
-          <li hlmBreadcrumbSeparator></li>
-          <li hlmBreadcrumbItem>
-            <a hlmBreadcrumbPage>Cadastro</a>
-          </li>
-          <li hlmBreadcrumbSeparator></li>
-
-          <li hlmBreadcrumbItem>
-            <a hlmBreadcrumbPage>Cadastro Novo Contribuinte</a>
-          </li>
-        </ol>
-      </nav>
-    </header>
-  `,
+  templateUrl: `./navigation.html`,
 })
 export class SiteBreadcrumb {}
