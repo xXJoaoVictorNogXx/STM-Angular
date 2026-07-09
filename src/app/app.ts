@@ -9,7 +9,7 @@ import { HlmToaster } from '@spartan-ng/helm/sonner';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SiteHeader, AppSidebar, CardPreview, SiteBreadcrumb, Footer, HlmToaster],
+  imports: [RouterOutlet, HlmToaster, SiteHeader, Footer, AppSidebar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

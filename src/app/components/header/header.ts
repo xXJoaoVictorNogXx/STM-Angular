@@ -17,6 +17,7 @@ import { UserComboboxComponent } from '../user-combobox/user-combobox';
     NgIcon,
     UserComboboxComponent,
   ],
+  standalone: true,
   providers: [provideIcons({ lucideSearch })],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './header.html',
