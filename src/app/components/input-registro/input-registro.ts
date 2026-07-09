@@ -1,14 +1,5 @@
 import { Component } from '@angular/core';
 import { HlmSelectImports } from '@spartan-ng/helm/select';
-import {
-  HlmSelect,
-  HlmSelectValue,
-  HlmSelectContent,
-  HlmSelectLabel,
-  HlmSelectItem,
-  HlmSelectTrigger,
-  HlmSelectGroup,
-} from '../ui/select/src';
 
 @Component({
   selector: 'app-select-preview',

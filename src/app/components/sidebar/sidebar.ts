@@ -27,8 +27,8 @@ import { HlmSidebarImports } from '@spartan-ng/helm/sidebar';
 import { HlmDropdownMenuImports } from '@spartan-ng/helm/dropdown-menu';
 import { HlmSeparator } from '@spartan-ng/helm/separator';
 
-import { UserComboboxComponent } from '../user-combobox/user-combobox';
 import { contribComboboxComponent } from '../contrib-combobox/contrib-combobox';
+import { CadastroNovoContrib } from '../../pages/cadastro-novo-contrib/cadastro-novo-contrib';
 
 @Component({
   selector: 'app-sidebar',
@@ -37,7 +37,6 @@ import { contribComboboxComponent } from '../contrib-combobox/contrib-combobox';
     HlmSidebarImports,
     HlmDropdownMenuImports,
     NgIcon,
-    UserComboboxComponent,
     contribComboboxComponent,
     HlmSeparator,
   ],
@@ -178,7 +177,10 @@ export default class AppSidebar {
         {
           title: 'Prefeitura',
           items: [
-            { title: 'Cadastro Novo Contribuinte', route: '/cadastro-novo' },
+            {
+              title: 'Cadastro Novo Contribuinte',
+              route: '/cadastro-economico/cadastro-novo-contribuinte',
+            },
             { title: 'Consulta de Contribuinte', route: '/consulta' },
           ],
           route: '/outra-opcao',

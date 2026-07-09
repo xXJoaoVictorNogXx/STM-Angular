@@ -1,7 +1,20 @@
-<app-site-header-sticky></app-site-header-sticky>
-<div>
-  <app-sidebar />
+<div hlmSidebarWrapper>
+  <app-sidebar></app-sidebar>
+
+  <main hlmSidebarInset class="flex flex-col h-screen">
+    <header class="border-b w-full bg-background">
+      <app-site-header-sticky></app-site-header-sticky>
+      <app-site-breadcrumb></app-site-breadcrumb>
+    </header>
+
+    <div class="flex-1 overflow-y-auto p-6">
+      <router-outlet></router-outlet>
+    </div>
+
+    <footer class="w-full shrink-0 border-t bg-background">
+      <app-footer />
+    </footer>
+  </main>
 </div>
-<router-outlet />
+
 <hlm-toaster />
-<app-footer />

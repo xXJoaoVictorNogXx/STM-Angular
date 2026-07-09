@@ -5,7 +5,7 @@ import { HlmBreadcrumbImports } from '@spartan-ng/helm/breadcrumb';
 import { HlmInputGroupImports } from '@spartan-ng/helm/input-group';
 import { HlmSeparatorImports } from '@spartan-ng/helm/separator';
 import { HlmSidebarImports } from '@spartan-ng/helm/sidebar';
-import { UserComboboxComponent } from '../user-combobox/user-combobox';
+import { UserComboboxComponent } from '../../components/user-combobox/user-combobox';
 
 @Component({
   selector: 'app-site-header-sticky',
