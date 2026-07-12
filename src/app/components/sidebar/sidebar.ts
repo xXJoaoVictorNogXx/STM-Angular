@@ -33,6 +33,7 @@ import { CadastroNovoContrib } from '../../pages/cadastro-novo-contrib/cadastro-
 @Component({
   selector: 'app-sidebar',
   standalone: true,
+
   imports: [
     HlmSidebarImports,
     HlmDropdownMenuImports,

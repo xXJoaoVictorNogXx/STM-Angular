@@ -1,16 +1,13 @@
-<div class="flex w-full">
-  <main class="grow grid">
-    <div class="border-b">
-      <div class="px-10 py-4">
-        <h1 class="font-light text-2xl">Cadastro Novo Contribuinte</h1>
-        <span class="text-sm text-muted-foreground"
-          >Insira os dados do novo contribuinte. Validações em tempo real e integração com
-          REDESIM.</span
-        >
-      </div>
-    </div>
-    <div class="p-10">
-      <app-card-preview />
-    </div>
-  </main>
+<div class="flex-1 p-6 w-full">
+  <header class="px-10 py-4">
+    <h1 class="font-light text-2xl">Cadastro Novo Contribuinte</h1>
+    <span class="text-sm text-muted-foreground"
+      >Insira os dados do novo contribuinte. Validações em tempo real e integração com
+      REDESIM.</span
+    >
+  </header>
+
+  <section class="grid sm:grid-cols-1 md:grid-cols-3 gap-4 w-full mt-10">
+    <app-card-preview />
+  </section>
 </div>

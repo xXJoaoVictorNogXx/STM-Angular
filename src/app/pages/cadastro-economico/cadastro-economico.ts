@@ -3,7 +3,7 @@ import { NavigationButtons } from '../../components/navigation-buttons/navigatio
 
 @Component({
   selector: 'app-cadastro-economico',
-  imports: [],
+  imports: [NavigationButtons],
   templateUrl: './cadastro-economico.html',
   styleUrl: './cadastro-economico.css',
 })
