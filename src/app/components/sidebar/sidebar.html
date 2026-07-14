@@ -1,8 +1,8 @@
-<a routerLink="/home" hlmSidebarHeader class="items-center px-4 py-4">
+<a routerLink="/" hlmSidebarHeader class="items-center px-4 py-4">
   <img src="logo.png" alt="" width="200px" />
 </a>
 
-<div hlmSidebarContent class="px-2 py-2">
+<div hlmSidebarContent class="h-screen px-2 py-2">
   <div class="mb-4">
     <button
       hlmSidebarMenuButton
@@ -25,7 +25,7 @@
           <hlm-separator />
 
           @for (mod of menuItems; track mod.title) {
-            <button hlmDropdownMenuItem (click)="setActiveModule(mod)">
+            <button hlmDropdownMenuItem (click)="setActiveModule(mod)" routerLink="{{ mod.route }}">
               <ng-icon [name]="mod.icon" class="mr-2 size-4" hlm />
               <span class="truncate">{{ mod.title }}</span>
             </button>
@@ -35,7 +35,7 @@
     </ng-template>
   </div>
 
-  <hlm-separator class="mx-2 mb-2" />
+  <hlm-separator class="" />
 
   <div hlmSidebarGroup>
     <div hlmSidebarGroupContent>
@@ -66,7 +66,11 @@
                 </hlm-dropdown-menu>
               </ng-template>
             } @else {
-              <button hlmSidebarMenuButton class="flex w-full items-center">
+              <button
+                hlmSidebarMenuButton
+                class="flex w-full items-center"
+                routerLink="{{ subItem.route }}"
+              >
                 <span>{{ subItem.title }}</span>
               </button>
             }
@@ -75,7 +79,7 @@
       </ul>
     </div>
   </div>
-  <div hlmSidebarFooter class="mt-auto px-2">
+  <div hlmSidebarFooter class="mt-auto">
     <app-contrib-combobox />
   </div>
 </div>

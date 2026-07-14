@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideHome, lucideSearch } from '@ng-icons/lucide';
+import { lucideBriefcase, lucideHome, lucideSearch } from '@ng-icons/lucide';
 import { HlmBreadcrumbImports } from '@spartan-ng/helm/breadcrumb';
 import { HlmInputGroupImports } from '@spartan-ng/helm/input-group';
 import { HlmSeparatorImports } from '@spartan-ng/helm/separator';
@@ -15,7 +15,7 @@ import { HlmSidebarImports } from '@spartan-ng/helm/sidebar';
     HlmInputGroupImports,
     NgIcon,
   ],
-  providers: [provideIcons({ lucideSearch, lucideHome })],
+  providers: [provideIcons({ lucideSearch, lucideHome, lucideBriefcase })],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: `./navigation.html`,
 })

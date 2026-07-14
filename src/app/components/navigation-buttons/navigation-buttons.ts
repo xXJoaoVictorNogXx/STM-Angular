@@ -64,5 +64,9 @@ export class NavigationButtons {
       icon: 'lucideBriefcase',
       link: '/cadastro-economico',
     },
+    { title: 'Cadastro Imobiliário', icon: 'lucideBuilding2' },
+    { title: 'Certidões', icon: 'lucideFileSignature' },
+    { title: 'Alvará', icon: 'lucideGavel' },
+    { title: 'Controle de Acesso', icon: 'lucideLock' },
   ];
 }

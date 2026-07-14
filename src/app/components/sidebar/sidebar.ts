@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
+
+import { RouterLink } from '@angular/router';
+
 import {
   lucideBadgeCheck,
   lucideBell,
@@ -40,6 +43,7 @@ import { CadastroNovoContrib } from '../../pages/cadastro-novo-contrib/cadastro-
     NgIcon,
     contribComboboxComponent,
     HlmSeparator,
+    RouterLink,
   ],
   templateUrl: './sidebar.html',
   providers: [
@@ -173,6 +177,7 @@ export default class AppSidebar {
     {
       title: 'Cadastro Econômico',
       icon: 'lucideBriefcase',
+      route: '/cadastro-economico',
       defaultOpen: false,
       items: [
         {
@@ -180,7 +185,7 @@ export default class AppSidebar {
           items: [
             {
               title: 'Cadastro Novo Contribuinte',
-              route: '/cadastro-economico/cadastro-novo-contribuinte',
+              route: '/cadastro-novo-contribuinte',
             },
             { title: 'Consulta de Contribuinte', route: '/consulta' },
           ],
