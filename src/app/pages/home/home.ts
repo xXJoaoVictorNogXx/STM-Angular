@@ -26,7 +26,7 @@ import {
 
 @Component({
   selector: 'app-home',
-  imports: [NavigationButtons, NgIcon],
+  imports: [NavigationButtons],
   templateUrl: './home.html',
   styleUrl: './home.css',
   providers: [

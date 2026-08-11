@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 
-import { RouterLink } from '@angular/router';
-
+import { RouterLink, RouterLinkActive } from '@angular/router'; // 1. Importe estas duas
 import {
   lucideBadgeCheck,
   lucideBell,
@@ -44,6 +43,7 @@ import { CadastroNovoContrib } from '../../pages/cadastro-novo-contrib/cadastro-
     contribComboboxComponent,
     HlmSeparator,
     RouterLink,
+    RouterLinkActive,
   ],
   templateUrl: './sidebar.html',
   providers: [

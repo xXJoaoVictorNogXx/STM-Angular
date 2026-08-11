@@ -4,7 +4,7 @@ import { NgIcon } from '@ng-icons/core';
 
 @Component({
   selector: 'app-footer',
-  imports: [HlmSeparator, NgIcon],
+  imports: [],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
