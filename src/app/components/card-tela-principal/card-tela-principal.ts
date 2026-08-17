@@ -21,7 +21,6 @@ import { toast } from '@spartan-ng/brain/sonner';
     HlmLabelImports,
     HlmInputImports,
     HlmButtonImports,
-    HlmInputGroup,
     SelectPreview,
     NgIcon,
   ],
