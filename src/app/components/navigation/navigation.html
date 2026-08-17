@@ -1,12 +1,21 @@
-<div class="flex w-full items-center p-2 text-center text-sm text-muted-foreground">
-  <nav
-    hlmBreadcrumb
-    class="hidden sm:block flex shrink-0 items-center gap-1.5 bg-card/50 px-6 text-xs"
-  >
-    <ol hlmBreadcrumbList class="flex items-center gap-1">
-      <li hlmBreadcrumbItem class="">
-        <a hlmBreadcrumbLink link="/"><ng-icon name="lucideHome" class="" hlm />Início</a>
+<nav hlmBreadcrumb>
+  <ol hlmBreadcrumbList class="">
+    <li hlmBreadcrumbItem class="">
+      <a hlmBreadcrumbLink link="/"><ng-icon name="lucideHome" class="" hlm />Início</a>
+    </li>
+
+    @for (crumb of breadcrumbs(); track crumb.url; let last = $last) {
+      <li hlmBreadcrumbSeparator>
+        <ng-icon name="lucideChevronRight" size="14" />
       </li>
-    </ol>
-  </nav>
-</div>
+
+      <li hlmBreadcrumbItem>
+        @if (last) {
+          <span hlmBreadcrumbPage>{{ crumb.label }}</span>
+        } @else {
+          <a hlmBreadcrumbLink [routerLink]="crumb.url">{{ crumb.label }}</a>
+        }
+      </li>
+    }
+  </ol>
+</nav>

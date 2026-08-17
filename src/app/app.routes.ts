@@ -14,10 +14,12 @@ export const routes: Routes = [
     path: 'cadastro-economico',
     component: CadastroEconomico,
     title: 'Cadastro Econômico',
+    data: { breadcrumb: 'Cadastro-Economico' },
   },
   {
     path: 'cadastro-economico/cadastro-novo-contribuinte',
     component: CadastroNovoContrib,
     title: 'Cadastro Novo Contribuinte',
+    data: { breadcrumb: 'Cadastro-Novo-Contribuinte' },
   },
 ];
